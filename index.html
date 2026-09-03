@@ -70,10 +70,67 @@
     .about-text{padding:28px;color:#24415f;line-height:1.95;font-size:1rem}
     .about-photo{overflow:hidden;background:linear-gradient(180deg,#fff,#eef6ff)} .about-photo img{width:100%;height:100%;min-height:340px;object-fit:cover}
 
+    /* Jornalismo */
+    .journalism-section{padding:34px 0 22px}
+    .journalism-shell{
+      position:relative;overflow:hidden;padding:32px;border-radius:32px;
+      background:linear-gradient(135deg,#092f58 0%,#075fa8 58%,#0a8ff0 100%);
+      color:#fff;box-shadow:0 22px 52px rgba(6,74,132,.22)
+    }
+    .journalism-shell:after{
+      content:"";position:absolute;width:340px;height:340px;border-radius:50%;
+      right:-130px;top:-170px;background:rgba(255,255,255,.08)
+    }
+    .journalism-intro{position:relative;z-index:1;max-width:780px}
+    .journalism-kicker{
+      display:inline-flex;padding:8px 12px;border-radius:999px;
+      background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.20);
+      font-size:.78rem;font-weight:800;letter-spacing:.08em
+    }
+    .journalism-shell .section-title{color:#fff;margin-top:14px;margin-bottom:10px}
+    .journalism-intro p{margin:0;color:#dcecff;line-height:1.75;font-size:1.02rem}
+    .journalism-stats{
+      position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);
+      gap:14px;margin:24px 0
+    }
+    .stat-card{
+      min-height:108px;padding:18px;border-radius:20px;background:rgba(255,255,255,.11);
+      border:1px solid rgba(255,255,255,.17);backdrop-filter:blur(5px)
+    }
+    .stat-card strong{display:block;font-size:1.9rem;color:#fff;margin-bottom:5px}
+    .stat-card span{display:block;color:#dcecff;line-height:1.45;font-size:.92rem}
+    .news-programs{
+      position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:16px
+    }
+    .news-feature{
+      padding:21px;border-radius:22px;background:#fff;color:#173858;
+      border:1px solid rgba(255,255,255,.7);box-shadow:0 14px 32px rgba(0,0,0,.10)
+    }
+    .news-feature.giro-feature{background:linear-gradient(145deg,#f0f8ff,#fff)}
+    .news-label{
+      display:inline-flex;padding:6px 9px;border-radius:999px;background:#e8f4ff;color:#075fa8;
+      font-size:.72rem;font-weight:900;letter-spacing:.06em
+    }
+    .news-time{margin-top:14px;color:#52718f;font-size:.86rem;font-weight:700}
+    .news-feature h3{margin:6px 0 3px;font-size:1.34rem;color:#0d2747}
+    .news-host{margin:0 0 11px!important;color:#0874c8!important;font-weight:800}
+    .news-feature p{margin:0;color:#5b7188;line-height:1.62;font-size:.94rem}
+    .hn-news-link{color:#075fa8;font-weight:900;text-decoration:underline;text-underline-offset:3px}
+
+    /* Grade semanal em cards */
     .schedule-card{padding:22px}
-    .tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+    .tabs{
+      display:flex;gap:9px;overflow-x:auto;padding:2px 2px 12px;margin-bottom:10px;
+      scrollbar-width:thin
+    }
+    .tabs::-webkit-scrollbar{height:5px}
     .day-radio{position:absolute;opacity:0;pointer-events:none}
-    .tab-btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 15px;border-radius:999px;background:#eef6ff;color:#28517c;border:1px solid #d8e6f4;font-weight:700;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
+    .tab-btn{
+      flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;
+      min-width:104px;padding:11px 15px;border-radius:999px;background:#eef6ff;color:#28517c;
+      border:1px solid #d8e6f4;font-weight:800;cursor:pointer;
+      transition:transform .18s ease,box-shadow .18s ease,background .18s ease
+    }
     .tab-btn:hover{transform:translateY(-2px)}
     .tab-panel{display:none}
     #day-domingo:checked ~ .tabs label[for="day-domingo"],
@@ -83,9 +140,8 @@
     #day-quinta:checked ~ .tabs label[for="day-quinta"],
     #day-sexta:checked ~ .tabs label[for="day-sexta"],
     #day-sabado:checked ~ .tabs label[for="day-sabado"]{
-      background:linear-gradient(135deg,var(--primary),var(--primary-2));
-      color:#fff;
-      box-shadow:0 12px 24px rgba(5,104,187,.18)
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;
+      border-color:transparent;box-shadow:0 12px 24px rgba(5,104,187,.18)
     }
     #day-domingo:checked ~ #domingo,
     #day-segunda:checked ~ #segunda,
@@ -94,12 +150,64 @@
     #day-quinta:checked ~ #quinta,
     #day-sexta:checked ~ #sexta,
     #day-sabado:checked ~ #sabado{display:block}
-    .table-wrap{overflow-x:auto;border-radius:20px;border:1px solid var(--border);background:#fbfdff}
-    table{width:100%;border-collapse:collapse;min-width:720px}
-    thead th{text-align:left;padding:16px 18px;background:#eaf4ff;color:#1e456c;font-size:.96rem}
-    tbody td{padding:14px 18px;border-top:1px solid var(--border);color:#234160;vertical-align:top}
-    tbody tr:nth-child(even){background:#f8fbff}
-    .free-tag{display:inline-block;padding:6px 10px;border-radius:999px;background:#eef7ff;border:1px solid #d7e5f2;color:#2f5c8b;font-size:.85rem;font-weight:700}
+
+    .category-legend{
+      display:flex;gap:10px 16px;flex-wrap:wrap;margin:0 0 16px;color:#496783;font-size:.86rem
+    }
+    .category-legend span{display:inline-flex;align-items:center;gap:7px}
+    .legend-dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+    .dot-news{background:#0878c9}.dot-faith{background:#7257b5}.dot-variety{background:#d4841f}
+    .dot-music{background:#2f9072}.dot-official{background:#637084}
+
+    .daily-news-strip{
+      display:flex;align-items:center;gap:13px;padding:15px 17px;margin:2px 0 16px;
+      border-radius:18px;background:linear-gradient(135deg,#e9f5ff,#f7fbff);
+      border:1px solid #cfe5f7;color:#214b71
+    }
+    .daily-news-icon{
+      flex:0 0 42px;height:42px;display:grid;place-items:center;border-radius:12px;
+      background:#075fa8;color:#fff;font-size:.86rem;font-weight:900;letter-spacing:.02em
+    }
+    .daily-news-strip strong{display:block;color:#0d4777;margin-bottom:3px}
+    .daily-news-strip span{display:block;color:#5c7892;font-size:.9rem;line-height:1.45}
+
+    .program-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+    .program-item{
+      min-height:94px;display:grid;grid-template-columns:126px 1fr;align-items:stretch;
+      overflow:hidden;border:1px solid #dce8f3;border-radius:18px;background:#fff;
+      box-shadow:0 8px 20px rgba(15,35,64,.045)
+    }
+    .program-time{
+      display:flex;align-items:center;justify-content:center;text-align:center;padding:15px 12px;
+      background:#f2f7fc;border-right:1px solid #dce8f3;color:#294e70;font-weight:900;
+      font-size:.89rem;line-height:1.35
+    }
+    .program-content{padding:14px 15px;min-width:0;display:flex;flex-direction:column;justify-content:center}
+    .program-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+    .program-heading strong{font-size:.98rem;line-height:1.35;color:#173858}
+    .program-presenter{display:block;margin-top:6px;color:#5d7592;font-size:.87rem;font-weight:700}
+    .program-content p{margin:6px 0 0;color:#6a7f92;font-size:.86rem;line-height:1.45}
+    .program-badge{
+      flex:0 0 auto;display:inline-flex;align-items:center;padding:5px 7px;border-radius:999px;
+      font-size:.63rem;font-weight:900;letter-spacing:.045em;white-space:nowrap
+    }
+    .badge-news{background:#e5f3ff;color:#0568bb}
+    .badge-faith{background:#f0ebff;color:#6248a0}
+    .badge-variety{background:#fff1df;color:#a45f0c}
+    .badge-music{background:#e7f6f0;color:#25785f}
+    .badge-official{background:#edf0f3;color:#546273}
+    .badge-general{background:#edf5fb;color:#52718f}
+    .badge-available{background:#fff5d9;color:#8b6711;border:1px solid #f2df9c}
+
+    .program-news{border-color:#beddf5;background:linear-gradient(135deg,#fff,#f5fbff)}
+    .program-news .program-time{background:#e9f5ff;color:#075fa8}
+    .program-faith .program-time{background:#f6f3ff;color:#6551a1}
+    .program-variety .program-time{background:#fff8ee;color:#9a5c15}
+    .program-music .program-time{background:#eff9f5;color:#31755f}
+    .program-official .program-time{background:#f1f3f5;color:#536272}
+    .program-available{border-style:dashed;border-color:#dccd97;background:#fffdf6}
+    .program-available .program-time{background:#fff8df;color:#7e671d}
+
 
     .youtube-card,.social-card{padding:24px}
     .youtube-box{border-radius:22px;border:1px solid var(--border);background:linear-gradient(135deg,#fff5f5,#fff);padding:24px}
@@ -120,14 +228,14 @@
     .footer-brand{display:flex;align-items:center;gap:12px} .footer-brand img{width:50px;height:50px;object-fit:contain}
     .footer-brand strong{display:block;color:#fff;margin-bottom:4px}
 
-    @media(max-width:980px){.hero-card,.about-grid{grid-template-columns:1fr}.hero-card{padding:24px}.about-photo img{min-height:240px}}
+    @media(max-width:980px){.hero-card,.about-grid{grid-template-columns:1fr}.hero-card{padding:24px}.about-photo img{min-height:240px}.journalism-stats,.news-programs{grid-template-columns:1fr}.program-grid{grid-template-columns:1fr}}
     @media(max-width:640px){
       .container{width:min(var(--max),calc(100% - 18px))}
       .topbar-inner{min-height:72px;gap:10px}
       .brand{padding:6px 10px} .brand img{height:54px} .brand strong{font-size:.98rem}
       .btn-primary,.yt-btn{padding:10px 14px;font-size:.92rem}
       .hero{padding-top:22px} .hero-brand img{width:96px} .hero-card{padding:18px;border-radius:24px}
-      .about-text,.youtube-card,.social-card,.schedule-card{padding:18px}
+      .about-text,.youtube-card,.social-card,.schedule-card{padding:18px}.journalism-shell{padding:22px}.program-item{grid-template-columns:105px 1fr}.program-time{font-size:.82rem}.program-heading{display:block}.program-badge{margin-top:7px}.daily-news-strip{align-items:flex-start}
       .tab-btn{padding:10px 13px;font-size:.9rem} .social-row{gap:14px} .footer-card{padding:18px}
     }
   </style>
@@ -207,10 +315,72 @@
       </div>
     </section>
 
+    <section id="jornalismo" class="journalism-section">
+      <div class="container">
+        <div class="journalism-shell">
+          <div class="journalism-intro">
+            <span class="journalism-kicker">INFORMAÇÃO E PRESTAÇÃO DE SERVIÇO</span>
+            <h2 class="section-title">Jornalismo na Vertical FM</h2>
+            <p>A informação faz parte da programação diária da Vertical FM, com programas jornalísticos fixos e boletins distribuídos ao longo do dia.</p>
+          </div>
+
+          <div class="journalism-stats">
+            <div class="stat-card">
+              <strong>2</strong>
+              <span>programas jornalísticos fixos de segunda a sexta</span>
+            </div>
+            <div class="stat-card">
+              <strong>6</strong>
+              <span>boletins Giro HN todos os dias</span>
+            </div>
+            <div class="stat-card">
+              <strong>7 dias</strong>
+              <span>de programação e conexão com a comunidade</span>
+            </div>
+          </div>
+
+          <div class="news-programs">
+            <article class="news-feature">
+              <span class="news-label">JORNALISMO</span>
+              <div class="news-time">Segunda a sexta • 07h às 07h55</div>
+              <h3>Comunidade Alerta</h3>
+              <p class="news-host">Pr. Vânio Oliveira</p>
+              <p>Notícias, entrevistas e assuntos de interesse da comunidade, abrindo a manhã com informação e prestação de serviço.</p>
+            </article>
+
+            <article class="news-feature">
+              <span class="news-label">JORNALISMO</span>
+              <div class="news-time">Segunda a sexta • 10h às 10h55</div>
+              <h3>Manhã News</h3>
+              <p class="news-host">Cleimar dos Santos</p>
+              <p>As principais notícias da manhã, entrevistas, informação regional e os assuntos que movimentam Criciúma e o Sul de Santa Catarina.</p>
+            </article>
+
+            <article class="news-feature giro-feature">
+              <span class="news-label">BOLETINS DIÁRIOS</span>
+              <div class="news-time">6 edições ao longo da programação</div>
+              <h3>Giro HN</h3>
+              <p class="news-host">Vertical FM + <a class="hn-news-link" href="https://hnnoticias.com.br/" target="_blank" rel="noopener">HN Notícias</a></p>
+              <p>Boletins com as principais notícias do dia, levando informação rápida e atualizada aos ouvintes em diferentes horários.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="programacao">
       <div class="container">
         <h2 class="section-title">Programação semanal</h2>
-        <p class="section-subtitle">Confira a grade atualizada da Rádio Vertical FM 97,7. Os espaços identificados como <strong>LIVRE</strong> permanecem destacados como horários disponíveis.</p>
+        <p class="section-subtitle">Escolha o dia para conferir a grade da Rádio Vertical FM 97,7. Cada programa aparece identificado por categoria para facilitar a leitura.</p>
+
+        <div class="category-legend" aria-label="Categorias da programação">
+          <span><i class="legend-dot dot-news"></i> Jornalismo</span>
+          <span><i class="legend-dot dot-faith"></i> Fé & espiritualidade</span>
+          <span><i class="legend-dot dot-variety"></i> Variedades</span>
+          <span><i class="legend-dot dot-music"></i> Programação musical</span>
+          <span><i class="legend-dot dot-official"></i> Institucional</span>
+        </div>
+
         <div class="card schedule-card">
           <input class="day-radio" type="radio" name="programacao-dia" id="day-domingo" checked>
           <input class="day-radio" type="radio" name="programacao-dia" id="day-segunda">
@@ -229,198 +399,1460 @@
             <label class="tab-btn" for="day-sexta" data-day="sexta">Sexta</label>
             <label class="tab-btn" for="day-sabado" data-day="sabado">Sábado</label>
           </div>
+
+
           <div class="tab-panel" id="domingo">
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Horário</th><th>Programa</th><th>Observação</th></tr></thead>
-          <tbody>
-            <tr><td>00:00 às 08:55</td><td>Madrugada</td><td></td></tr>
-<tr><td>09:00 às 09:55</td><td>Cristiano - Semeando vidas</td><td></td></tr>
-<tr><td>10:00 às 10:55</td><td>Pr. Valmir - Paz real</td><td></td></tr>
-<tr><td>11:00 às 11:55</td><td>Pr. Donizete Braz - Igreja Pentecostal Casa dos Milagres</td><td></td></tr>
-<tr><td>12:00 às 12:55</td><td>Pr. Vacilézio - Jesus a única esperança</td><td></td></tr>
-<tr><td>13:00 às 14:55</td><td>Telson - Agradecendo Deus</td><td></td></tr>
-<tr><td>15:00 às 16:55</td><td>Jhonathan - Missão solidária</td><td></td></tr>
-<tr><td>17:00 às 17:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
-<tr><td>18:00 às 18:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
-<tr><td>19:00 às 19:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
-<tr><td>20:00 às 20:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
-<tr><td>21:00 às 21:55</td><td>Pr. Tiago Guimarães - Óticas Mondo: PERMUTA</td><td></td></tr>
-<tr><td>22:00 às 22:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
-<tr><td>23:00 às 23:55</td><td>Tião - Por trás das grades</td><td></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-<div class="tab-panel" id="segunda">
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Horário</th><th>Programa</th><th>Observação</th></tr></thead>
-          <tbody>
-            <tr><td>00:00 às 05:25</td><td>Madrugada</td><td></td></tr>
-<tr><td>05:30 às 06:55</td><td>Pr. Iliomar Moura</td><td></td></tr>
-<tr><td>07:00 às 07:55</td><td>Pr. Vânio Oliveira - Comunidade Alerta</td><td></td></tr>
-<tr><td>08:00 às 08:55</td><td>Pr. Tiago, Óticas Mondo - Bom te ver bem</td><td></td></tr>
-<tr><td>09:00 às 09:55</td><td>Pr. Antenor - Pr. Junior - Vida Jovem</td><td></td></tr>
-<tr><td>10:00 às 10:55</td><td>Cleimar dos Santos - Manhã News</td><td></td></tr>
-<tr><td>11:00 às 11:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
-<tr><td>12:00 às 12:55</td><td>Josiel Pedro / Paulo Santos - A voz da libertação - Deus é Amor</td><td></td></tr>
-<tr><td>13:00 às 13:55</td><td>Magali - Terapêuta à Serviço de Deus</td><td></td></tr>
-<tr><td>14:00 às 14:55</td><td>Pr. Ademir Felisberto - A Hora da Benção</td><td></td></tr>
-<tr><td>15:00 às 15:55</td><td>Israel Mijaeski - A Tarde é Nossa</td><td></td></tr>
-<tr><td>16:00 às 16:55</td><td>Luana - Vida e Paz</td><td></td></tr>
-<tr><td>17:00 às 17:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
-<tr><td>18:00 às 18:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
-<tr><td>19:00 às 19:55</td><td>Pb. Davi - Eu sou o Caminho</td><td></td></tr>
-<tr><td>20:00 às 20:55</td><td>Vagner Luis - Eu e minha casa serviremos ao Senhor</td><td></td></tr>
-<tr><td>21:00 às 22:00</td><td>VOZ DO BRASIL</td><td></td></tr>
-<tr><td>22:00 às 22:55</td><td>Edmilson - Jesus é o caminho a verdade e a vida</td><td></td></tr>
-<tr><td>23:00 às 23:55</td><td>Tião - Por trás das Grades</td><td></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-<div class="tab-panel" id="terca">
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Horário</th><th>Programa</th><th>Observação</th></tr></thead>
-          <tbody>
-            <tr><td>00:00 às 05:25</td><td>Madrugada</td><td></td></tr>
-<tr><td>05:30 às 06:55</td><td>Pr. Iliomar Moura</td><td></td></tr>
-<tr><td>07:00 às 07:55</td><td>Pr. Vânio Oliveira - Comunidade Alerta</td><td></td></tr>
-<tr><td>08:00 às 08:55</td><td>André Eleotério</td><td></td></tr>
-<tr><td>09:00 às 09:55</td><td>Marlene Oásis</td><td></td></tr>
-<tr><td>10:00 às 10:55</td><td>Cleimar dos Santos - Manhã News</td><td></td></tr>
-<tr><td>11:00 às 11:55</td><td>Betão Quadrangular - Graça e Fogo</td><td></td></tr>
-<tr><td>12:00 às 12:55</td><td>Josiel Pedro / Paulo Santos - A voz da libertação - Deus é Amor</td><td></td></tr>
-<tr><td>13:00 às 13:55</td><td>Dirceu - Novo Caminho</td><td></td></tr>
-<tr><td>14:00 às 14:55</td><td>Josenir - Mãos Dadas</td><td></td></tr>
-<tr><td>15:00 às 15:55</td><td>Israel Mijaeski - A Tarde é Nossa</td><td></td></tr>
-<tr><td>16:00 às 16:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
-<tr><td>17:00 às 17:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
-<tr><td>18:00 às 18:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
-<tr><td>19:00 às 19:55</td><td>Jobson - Há poder no Sangue de Jesus</td><td></td></tr>
-<tr><td>20:00 às 20:55</td><td>Jobson - Há poder no Sangue de Jesus</td><td></td></tr>
-<tr><td>21:00 às 22:00</td><td>VOZ DO BRASIL</td><td></td></tr>
-<tr><td>22:00 às 22:55</td><td>João - Noite com Deus</td><td></td></tr>
-<tr><td>23:00 às 23:55</td><td>Tião - Por trás das Grades</td><td></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-<div class="tab-panel" id="quarta">
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Horário</th><th>Programa</th><th>Observação</th></tr></thead>
-          <tbody>
-            <tr><td>00:00 às 05:25</td><td>Madrugada</td><td></td></tr>
-<tr><td>05:30 às 06:55</td><td>Pr. Iliomar Moura</td><td></td></tr>
-<tr><td>07:00 às 07:55</td><td>Pr. Vânio Oliveira - Comunidade Alerta</td><td></td></tr>
-<tr><td>08:00 às 09:55</td><td>Pr. Jeferson Boianowski - Despertai</td><td></td></tr>
-<tr><td>10:00 às 10:55</td><td>Cleimar dos Santos - Manhã News</td><td></td></tr>
-<tr><td>11:00 às 11:55</td><td>Roteiros do Sul - Marcelo</td><td></td></tr>
-<tr><td>12:00 às 12:55</td><td>Josiel Pedro / Paulo Santos - A voz da libertação - Deus é Amor</td><td></td></tr>
-<tr><td>13:00 às 13:55</td><td>Pr. Maurino / Cláudia - Uma voz no Deserto</td><td></td></tr>
-<tr><td>14:00 às 14:55</td><td>Pr. Gerônimo - Palavra Profética</td><td></td></tr>
-<tr><td>15:00 às 15:55</td><td>Israel Mijaeski - A Tarde é Nossa</td><td></td></tr>
-<tr><td>16:00 às 16:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
-<tr><td>17:00 às 17:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
-<tr><td>18:00 às 18:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
-<tr><td>19:00 às 19:55</td><td>Pr. Leonel - Alimente-se da Verdade</td><td></td></tr>
-<tr><td>20:00 às 20:55</td><td>Pr. Valmir de Souza - Vitória em Cristo</td><td></td></tr>
-<tr><td>21:00 às 22:00</td><td>VOZ DO BRASIL</td><td></td></tr>
-<tr><td>22:00 às 22:55</td><td>Pr. Valdenir Ronchi</td><td></td></tr>
-<tr><td>23:00 às 23:55</td><td>Tião - Por trás das Grades</td><td></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-<div class="tab-panel" id="quinta">
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Horário</th><th>Programa</th><th>Observação</th></tr></thead>
-          <tbody>
-            <tr><td>00:00 às 05:25</td><td>Madrugada</td><td></td></tr>
-<tr><td>05:30 às 06:55</td><td>Pr. Iliomar Moura</td><td></td></tr>
-<tr><td>07:00 às 07:55</td><td>Pr. Vânio Oliveira - Comunidade Alerta</td><td></td></tr>
-<tr><td>08:00 às 08:55</td><td>Wellington Mafiolete - Meu grande herói</td><td></td></tr>
-<tr><td>09:00 às 09:55</td><td>Wellington Mafiolete - Meu grande herói</td><td></td></tr>
-<tr><td>10:00 às 10:55</td><td>Cleimar dos Santos - Manhã News</td><td></td></tr>
-<tr><td>11:00 às 11:55</td><td>Tânia - Amor e Vida</td><td></td></tr>
-<tr><td>12:00 às 12:55</td><td>Josiel Pedro / Paulo Santos - A voz da libertação - Deus é Amor</td><td></td></tr>
-<tr><td>13:00 às 13:55</td><td>Jucélia - Idade de Ouro</td><td></td></tr>
-<tr><td>14:00 às 14:55</td><td>Pb. João dos Passos - Missão da Última Hora</td><td></td></tr>
-<tr><td>15:00 às 15:55</td><td>Israel Mijaeski - A Tarde é Nossa</td><td></td></tr>
-<tr><td>16:00 às 16:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
-<tr><td>17:00 às 17:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
-<tr><td>18:00 às 18:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
-<tr><td>19:00 às 19:55</td><td>Pr. Rodrigo Léo - Em obras - Jesus na ruas</td><td></td></tr>
-<tr><td>20:00 às 20:55</td><td>Irmã Rosane Carvalho - Uma Vida com propósito</td><td></td></tr>
-<tr><td>21:00 às 22:00</td><td>VOZ DO BRASIL</td><td></td></tr>
-<tr><td>22:00 às 22:55</td><td>Pr. Gerson Luiz - Luz do Mundo</td><td></td></tr>
-<tr><td>23:00 às 23:55</td><td>Tião - Por trás das Grades</td><td></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-<div class="tab-panel" id="sexta">
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Horário</th><th>Programa</th><th>Observação</th></tr></thead>
-          <tbody>
-            <tr><td>00:00 às 05:25</td><td>Madrugada</td><td></td></tr>
-<tr><td>05:30 às 06:55</td><td>Pr. Iliomar Moura</td><td></td></tr>
-<tr><td>07:00 às 07:55</td><td>Pr. Vânio Oliveira - Comunidade Alerta</td><td></td></tr>
-<tr><td>08:00 às 08:55</td><td>Pr. Sabino Nicolleti - AD Turvo</td><td></td></tr>
-<tr><td>09:00 às 09:55</td><td>Célio Timboni - Uma voz que ecoa no deserto</td><td></td></tr>
-<tr><td>10:00 às 10:55</td><td>Cleimar dos Santos - Manhã News</td><td></td></tr>
-<tr><td>11:00 às 11:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
-<tr><td>12:00 às 12:55</td><td>Josiel Pedro / Paulo Santos - A voz da libertação - Deus é Amor</td><td></td></tr>
-<tr><td>13:00 às 14:55</td><td>Pr. Cleiton Santos</td><td></td></tr>
-<tr><td>15:00 às 15:55</td><td>Israel Mijaeski - A Tarde é Nossa</td><td></td></tr>
-<tr><td>16:00 às 16:55</td><td>Pr. Wagner - Desafio Calebe</td><td></td></tr>
-<tr><td>17:00 às 17:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
-<tr><td>18:00 às 18:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
-<tr><td>19:00 às 19:55</td><td>Pr. Daniel - O Senhor é meu pasrtor, nada me faltará</td><td></td></tr>
-<tr><td>20:00 às 20:55</td><td>Pr. Marcos Rosa - Cristo é vida</td><td></td></tr>
-<tr><td>21:00 às 22:00</td><td>VOZ DO BRASIL</td><td></td></tr>
-<tr><td>22:00 às 22:55</td><td>Ev. Diomar - Enraizados em Cristo</td><td></td></tr>
-<tr><td>23:00 às 23:55</td><td>Tião - Por trás das Grades</td><td></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-<div class="tab-panel" id="sabado">
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Horário</th><th>Programa</th><th>Observação</th></tr></thead>
-          <tbody>
-            <tr><td>00:00 às 06:55</td><td>Madrugada</td><td></td></tr>
-<tr><td>07:00 às 07:55</td><td>Deleon - Semeando a Palavra</td><td></td></tr>
-<tr><td>08:00 às 08:55</td><td>Marcio - Libertos pela Palavra</td><td></td></tr>
-<tr><td>09:00 às 09:55</td><td>Pr. Antenor - Pr. Junior - Vida Jovem</td><td></td></tr>
-<tr><td>10:00 às 10:55</td><td>Pr. Iliomar - Ecos do Calvário</td><td></td></tr>
-<tr><td>11:00 às 11:55</td><td>Pr. Amilton - Seguidores de Jesus</td><td></td></tr>
-<tr><td>12:00 às 12:55</td><td>Amilton - Igreja Cristã Tabernáculo da Nova Aliança</td><td></td></tr>
-<tr><td>13:00 às 14:55</td><td>Pr. Carlinhos - Momento da Fé</td><td></td></tr>
-<tr><td>15:00 às 15:55</td><td>Pr. Francisco - Vivendo em Cristo e resgatando</td><td></td></tr>
-<tr><td>16:00 às 16:55</td><td>Pb. Dilnei do Nascimento - Murilo - Mensagem de paz</td><td></td></tr>
-<tr><td>17:00 às 17:55</td><td>Darcilo Andrade - Clamor dos Perdidos</td><td></td></tr>
-<tr><td>18:00 às 18:55</td><td>O poder sobrenatural da fé - Pr. Gessivaldo Miranda</td><td></td></tr>
-<tr><td>19:00 às 19:55</td><td>Karina Silveira - Palavra Viva</td><td></td></tr>
-<tr><td>20:00 às 20:55</td><td>Pr. Joanilson - Carla - Missionários pelo mundo</td><td></td></tr>
-<tr><td>21:00 às 21:55</td><td>Deus, Amor e Justiça - Pr. Eli Leopoldo</td><td></td></tr>
-<tr><td>22:00 às 22:55</td><td>Tião - Por Trás das grades</td><td></td></tr>
-<tr><td>23:00 às 23:55</td><td>Tião - Por trás das grades</td><td></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+            <div class="daily-news-strip">
+              <div class="daily-news-icon">HN</div>
+              <div>
+                <strong>Giro HN</strong>
+                <span>6 boletins com as principais notícias do dia, distribuídos ao longo da programação.</span>
+              </div>
+            </div>
+            <div class="program-grid">
+
+            <article class="program-item program-music">
+              <div class="program-time">00:00 às 08:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Madrugada</strong>
+                  <span class="program-badge badge-music">PROGRAMAÇÃO MUSICAL</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-general">
+              <div class="program-time">09:00 às 09:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Cristiano - Semeando vidas</strong>
+                  <span class="program-badge badge-general">PROGRAMA</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">10:00 às 10:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Valmir - Paz real</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">11:00 às 11:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Donizete Braz - Igreja Pentecostal Casa dos Milagres</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">12:00 às 12:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Vacilézio - Jesus a única esperança</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">13:00 às 14:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Telson - Agradecendo Deus</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-general">
+              <div class="program-time">15:00 às 16:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Jhonathan - Missão solidária</strong>
+                  <span class="program-badge badge-general">PROGRAMA</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-available">
+              <div class="program-time">17:00 às 17:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Espaço disponível</strong>
+                  <span class="program-badge badge-available">LIVRE</span>
+                </div>
+                <p>Horário disponível para novos programas e projetos.</p>
+              </div>
+            </article>
+
+            <article class="program-item program-available">
+              <div class="program-time">18:00 às 18:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Espaço disponível</strong>
+                  <span class="program-badge badge-available">LIVRE</span>
+                </div>
+                <p>Horário disponível para novos programas e projetos.</p>
+              </div>
+            </article>
+
+            <article class="program-item program-available">
+              <div class="program-time">19:00 às 19:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Espaço disponível</strong>
+                  <span class="program-badge badge-available">LIVRE</span>
+                </div>
+                <p>Horário disponível para novos programas e projetos.</p>
+              </div>
+            </article>
+
+            <article class="program-item program-available">
+              <div class="program-time">20:00 às 20:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Espaço disponível</strong>
+                  <span class="program-badge badge-available">LIVRE</span>
+                </div>
+                <p>Horário disponível para novos programas e projetos.</p>
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">21:00 às 21:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Tiago Guimarães - Óticas Mondo: PERMUTA</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-available">
+              <div class="program-time">22:00 às 22:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Espaço disponível</strong>
+                  <span class="program-badge badge-available">LIVRE</span>
+                </div>
+                <p>Horário disponível para novos programas e projetos.</p>
+              </div>
+            </article>
+
+            <article class="program-item program-general">
+              <div class="program-time">23:00 às 23:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Tião - Por trás das grades</strong>
+                  <span class="program-badge badge-general">PROGRAMA</span>
+                </div>
+                
+              </div>
+            </article>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="segunda">
+            <div class="daily-news-strip">
+              <div class="daily-news-icon">HN</div>
+              <div>
+                <strong>Giro HN</strong>
+                <span>6 boletins com as principais notícias do dia, distribuídos ao longo da programação.</span>
+              </div>
+            </div>
+            <div class="program-grid">
+
+            <article class="program-item program-music">
+              <div class="program-time">00:00 às 05:25</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Madrugada</strong>
+                  <span class="program-badge badge-music">PROGRAMAÇÃO MUSICAL</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">05:30 às 06:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Iliomar Moura</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-news">
+              <div class="program-time">07:00 às 07:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Comunidade Alerta</strong>
+                  <span class="program-badge badge-news">JORNALISMO</span>
+                </div>
+                <span class="program-presenter">Pr. Vânio Oliveira</span>
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">08:00 às 08:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Tiago, Óticas Mondo - Bom te ver bem</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">09:00 às 09:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Antenor - Pr. Junior - Vida Jovem</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-news">
+              <div class="program-time">10:00 às 10:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Manhã News</strong>
+                  <span class="program-badge badge-news">JORNALISMO</span>
+                </div>
+                <span class="program-presenter">Cleimar dos Santos</span>
+              </div>
+            </article>
+
+            <article class="program-item program-available">
+              <div class="program-time">11:00 às 11:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Espaço disponível</strong>
+                  <span class="program-badge badge-available">LIVRE</span>
+                </div>
+                <p>Horário disponível para novos programas e projetos.</p>
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">12:00 às 12:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Josiel Pedro / Paulo Santos - A voz da libertação - Deus é Amor</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">13:00 às 13:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Magali - Terapeuta a Serviço de Deus</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">14:00 às 14:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Ademir Felisberto - A Hora da Benção</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-variety">
+              <div class="program-time">15:00 às 15:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>A Tarde é Nossa</strong>
+                  <span class="program-badge badge-variety">VARIEDADES</span>
+                </div>
+                <span class="program-presenter">Israel Mijaeski</span>
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">16:00 às 16:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Luana - Vida e Paz</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-available">
+              <div class="program-time">17:00 às 17:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Espaço disponível</strong>
+                  <span class="program-badge badge-available">LIVRE</span>
+                </div>
+                <p>Horário disponível para novos programas e projetos.</p>
+              </div>
+            </article>
+
+            <article class="program-item program-available">
+              <div class="program-time">18:00 às 18:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Espaço disponível</strong>
+                  <span class="program-badge badge-available">LIVRE</span>
+                </div>
+                <p>Horário disponível para novos programas e projetos.</p>
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">19:00 às 19:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pb. Davi - Eu sou o Caminho</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">20:00 às 20:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Vagner Luis - Eu e minha casa serviremos ao Senhor</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-official">
+              <div class="program-time">21:00 às 22:00</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>VOZ DO BRASIL</strong>
+                  <span class="program-badge badge-official">INSTITUCIONAL</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">22:00 às 22:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Edmilson - Jesus é o caminho a verdade e a vida</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-general">
+              <div class="program-time">23:00 às 23:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Tião - Por trás das Grades</strong>
+                  <span class="program-badge badge-general">PROGRAMA</span>
+                </div>
+                
+              </div>
+            </article>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="terca">
+            <div class="daily-news-strip">
+              <div class="daily-news-icon">HN</div>
+              <div>
+                <strong>Giro HN</strong>
+                <span>6 boletins com as principais notícias do dia, distribuídos ao longo da programação.</span>
+              </div>
+            </div>
+            <div class="program-grid">
+
+            <article class="program-item program-music">
+              <div class="program-time">00:00 às 05:25</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Madrugada</strong>
+                  <span class="program-badge badge-music">PROGRAMAÇÃO MUSICAL</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">05:30 às 06:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Iliomar Moura</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-news">
+              <div class="program-time">07:00 às 07:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Comunidade Alerta</strong>
+                  <span class="program-badge badge-news">JORNALISMO</span>
+                </div>
+                <span class="program-presenter">Pr. Vânio Oliveira</span>
+              </div>
+            </article>
+
+            <article class="program-item program-general">
+              <div class="program-time">08:00 às 08:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>André Eleotério</strong>
+                  <span class="program-badge badge-general">PROGRAMA</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-general">
+              <div class="program-time">09:00 às 09:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Marlene Oásis</strong>
+                  <span class="program-badge badge-general">PROGRAMA</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-news">
+              <div class="program-time">10:00 às 10:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Manhã News</strong>
+                  <span class="program-badge badge-news">JORNALISMO</span>
+                </div>
+                <span class="program-presenter">Cleimar dos Santos</span>
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">11:00 às 11:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Betão Quadrangular - Graça e Fogo</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">12:00 às 12:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Josiel Pedro / Paulo Santos - A voz da libertação - Deus é Amor</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-general">
+              <div class="program-time">13:00 às 13:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Dirceu - Novo Caminho</strong>
+                  <span class="program-badge badge-general">PROGRAMA</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-general">
+              <div class="program-time">14:00 às 14:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Josenir - Mãos Dadas</strong>
+                  <span class="program-badge badge-general">PROGRAMA</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-variety">
+              <div class="program-time">15:00 às 15:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>A Tarde é Nossa</strong>
+                  <span class="program-badge badge-variety">VARIEDADES</span>
+                </div>
+                <span class="program-presenter">Israel Mijaeski</span>
+              </div>
+            </article>
+
+            <article class="program-item program-available">
+              <div class="program-time">16:00 às 16:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Espaço disponível</strong>
+                  <span class="program-badge badge-available">LIVRE</span>
+                </div>
+                <p>Horário disponível para novos programas e projetos.</p>
+              </div>
+            </article>
+
+            <article class="program-item program-available">
+              <div class="program-time">17:00 às 17:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Espaço disponível</strong>
+                  <span class="program-badge badge-available">LIVRE</span>
+                </div>
+                <p>Horário disponível para novos programas e projetos.</p>
+              </div>
+            </article>
+
+            <article class="program-item program-available">
+              <div class="program-time">18:00 às 18:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Espaço disponível</strong>
+                  <span class="program-badge badge-available">LIVRE</span>
+                </div>
+                <p>Horário disponível para novos programas e projetos.</p>
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">19:00 às 19:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Jobson - Há poder no Sangue de Jesus</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">20:00 às 20:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Jobson - Há poder no Sangue de Jesus</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-official">
+              <div class="program-time">21:00 às 22:00</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>VOZ DO BRASIL</strong>
+                  <span class="program-badge badge-official">INSTITUCIONAL</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">22:00 às 22:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>João - Noite com Deus</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-general">
+              <div class="program-time">23:00 às 23:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Tião - Por trás das Grades</strong>
+                  <span class="program-badge badge-general">PROGRAMA</span>
+                </div>
+                
+              </div>
+            </article>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="quarta">
+            <div class="daily-news-strip">
+              <div class="daily-news-icon">HN</div>
+              <div>
+                <strong>Giro HN</strong>
+                <span>6 boletins com as principais notícias do dia, distribuídos ao longo da programação.</span>
+              </div>
+            </div>
+            <div class="program-grid">
+
+            <article class="program-item program-music">
+              <div class="program-time">00:00 às 05:25</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Madrugada</strong>
+                  <span class="program-badge badge-music">PROGRAMAÇÃO MUSICAL</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">05:30 às 06:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Iliomar Moura</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-news">
+              <div class="program-time">07:00 às 07:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Comunidade Alerta</strong>
+                  <span class="program-badge badge-news">JORNALISMO</span>
+                </div>
+                <span class="program-presenter">Pr. Vânio Oliveira</span>
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">08:00 às 09:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Jeferson Boianowski - Despertai</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-news">
+              <div class="program-time">10:00 às 10:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Manhã News</strong>
+                  <span class="program-badge badge-news">JORNALISMO</span>
+                </div>
+                <span class="program-presenter">Cleimar dos Santos</span>
+              </div>
+            </article>
+
+            <article class="program-item program-variety">
+              <div class="program-time">11:00 às 11:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Roteiros do Sul</strong>
+                  <span class="program-badge badge-variety">VARIEDADES</span>
+                </div>
+                <span class="program-presenter">Marcelo</span>
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">12:00 às 12:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Josiel Pedro / Paulo Santos - A voz da libertação - Deus é Amor</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">13:00 às 13:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Maurino / Cláudia - Uma voz no Deserto</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">14:00 às 14:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Gerônimo - Palavra Profética</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-variety">
+              <div class="program-time">15:00 às 15:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>A Tarde é Nossa</strong>
+                  <span class="program-badge badge-variety">VARIEDADES</span>
+                </div>
+                <span class="program-presenter">Israel Mijaeski</span>
+              </div>
+            </article>
+
+            <article class="program-item program-available">
+              <div class="program-time">16:00 às 16:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Espaço disponível</strong>
+                  <span class="program-badge badge-available">LIVRE</span>
+                </div>
+                <p>Horário disponível para novos programas e projetos.</p>
+              </div>
+            </article>
+
+            <article class="program-item program-available">
+              <div class="program-time">17:00 às 17:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Espaço disponível</strong>
+                  <span class="program-badge badge-available">LIVRE</span>
+                </div>
+                <p>Horário disponível para novos programas e projetos.</p>
+              </div>
+            </article>
+
+            <article class="program-item program-available">
+              <div class="program-time">18:00 às 18:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Espaço disponível</strong>
+                  <span class="program-badge badge-available">LIVRE</span>
+                </div>
+                <p>Horário disponível para novos programas e projetos.</p>
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">19:00 às 19:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Leonel - Alimente-se da Verdade</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">20:00 às 20:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Valmir de Souza - Vitória em Cristo</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-official">
+              <div class="program-time">21:00 às 22:00</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>VOZ DO BRASIL</strong>
+                  <span class="program-badge badge-official">INSTITUCIONAL</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">22:00 às 22:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Valdenir Ronchi</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-general">
+              <div class="program-time">23:00 às 23:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Tião - Por trás das Grades</strong>
+                  <span class="program-badge badge-general">PROGRAMA</span>
+                </div>
+                
+              </div>
+            </article>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="quinta">
+            <div class="daily-news-strip">
+              <div class="daily-news-icon">HN</div>
+              <div>
+                <strong>Giro HN</strong>
+                <span>6 boletins com as principais notícias do dia, distribuídos ao longo da programação.</span>
+              </div>
+            </div>
+            <div class="program-grid">
+
+            <article class="program-item program-music">
+              <div class="program-time">00:00 às 05:25</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Madrugada</strong>
+                  <span class="program-badge badge-music">PROGRAMAÇÃO MUSICAL</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">05:30 às 06:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Iliomar Moura</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-news">
+              <div class="program-time">07:00 às 07:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Comunidade Alerta</strong>
+                  <span class="program-badge badge-news">JORNALISMO</span>
+                </div>
+                <span class="program-presenter">Pr. Vânio Oliveira</span>
+              </div>
+            </article>
+
+            <article class="program-item program-general">
+              <div class="program-time">08:00 às 08:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Wellington Mafiolete - Meu grande herói</strong>
+                  <span class="program-badge badge-general">PROGRAMA</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-general">
+              <div class="program-time">09:00 às 09:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Wellington Mafiolete - Meu grande herói</strong>
+                  <span class="program-badge badge-general">PROGRAMA</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-news">
+              <div class="program-time">10:00 às 10:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Manhã News</strong>
+                  <span class="program-badge badge-news">JORNALISMO</span>
+                </div>
+                <span class="program-presenter">Cleimar dos Santos</span>
+              </div>
+            </article>
+
+            <article class="program-item program-general">
+              <div class="program-time">11:00 às 11:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Tânia - Amor e Vida</strong>
+                  <span class="program-badge badge-general">PROGRAMA</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">12:00 às 12:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Josiel Pedro / Paulo Santos - A voz da libertação - Deus é Amor</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-variety">
+              <div class="program-time">13:00 às 13:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Idade de Ouro</strong>
+                  <span class="program-badge badge-variety">VARIEDADES</span>
+                </div>
+                <span class="program-presenter">Jucélia</span>
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">14:00 às 14:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pb. João dos Passos - Missão da Última Hora</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-variety">
+              <div class="program-time">15:00 às 15:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>A Tarde é Nossa</strong>
+                  <span class="program-badge badge-variety">VARIEDADES</span>
+                </div>
+                <span class="program-presenter">Israel Mijaeski</span>
+              </div>
+            </article>
+
+            <article class="program-item program-available">
+              <div class="program-time">16:00 às 16:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Espaço disponível</strong>
+                  <span class="program-badge badge-available">LIVRE</span>
+                </div>
+                <p>Horário disponível para novos programas e projetos.</p>
+              </div>
+            </article>
+
+            <article class="program-item program-available">
+              <div class="program-time">17:00 às 17:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Espaço disponível</strong>
+                  <span class="program-badge badge-available">LIVRE</span>
+                </div>
+                <p>Horário disponível para novos programas e projetos.</p>
+              </div>
+            </article>
+
+            <article class="program-item program-available">
+              <div class="program-time">18:00 às 18:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Espaço disponível</strong>
+                  <span class="program-badge badge-available">LIVRE</span>
+                </div>
+                <p>Horário disponível para novos programas e projetos.</p>
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">19:00 às 19:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Rodrigo Léo - Em obras - Jesus na ruas</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">20:00 às 20:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Irmã Rosane Carvalho - Uma Vida com propósito</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-official">
+              <div class="program-time">21:00 às 22:00</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>VOZ DO BRASIL</strong>
+                  <span class="program-badge badge-official">INSTITUCIONAL</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">22:00 às 22:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Gerson Luiz - Luz do Mundo</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-general">
+              <div class="program-time">23:00 às 23:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Tião - Por trás das Grades</strong>
+                  <span class="program-badge badge-general">PROGRAMA</span>
+                </div>
+                
+              </div>
+            </article>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="sexta">
+            <div class="daily-news-strip">
+              <div class="daily-news-icon">HN</div>
+              <div>
+                <strong>Giro HN</strong>
+                <span>6 boletins com as principais notícias do dia, distribuídos ao longo da programação.</span>
+              </div>
+            </div>
+            <div class="program-grid">
+
+            <article class="program-item program-music">
+              <div class="program-time">00:00 às 05:25</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Madrugada</strong>
+                  <span class="program-badge badge-music">PROGRAMAÇÃO MUSICAL</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">05:30 às 06:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Iliomar Moura</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-news">
+              <div class="program-time">07:00 às 07:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Comunidade Alerta</strong>
+                  <span class="program-badge badge-news">JORNALISMO</span>
+                </div>
+                <span class="program-presenter">Pr. Vânio Oliveira</span>
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">08:00 às 08:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Sabino Nicolleti - AD Turvo</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">09:00 às 09:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Célio Timboni - Uma voz que ecoa no deserto</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-news">
+              <div class="program-time">10:00 às 10:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Manhã News</strong>
+                  <span class="program-badge badge-news">JORNALISMO</span>
+                </div>
+                <span class="program-presenter">Cleimar dos Santos</span>
+              </div>
+            </article>
+
+            <article class="program-item program-available">
+              <div class="program-time">11:00 às 11:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Espaço disponível</strong>
+                  <span class="program-badge badge-available">LIVRE</span>
+                </div>
+                <p>Horário disponível para novos programas e projetos.</p>
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">12:00 às 12:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Josiel Pedro / Paulo Santos - A voz da libertação - Deus é Amor</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">13:00 às 14:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Cleiton Santos</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-variety">
+              <div class="program-time">15:00 às 15:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>A Tarde é Nossa</strong>
+                  <span class="program-badge badge-variety">VARIEDADES</span>
+                </div>
+                <span class="program-presenter">Israel Mijaeski</span>
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">16:00 às 16:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Wagner - Desafio Calebe</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-available">
+              <div class="program-time">17:00 às 17:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Espaço disponível</strong>
+                  <span class="program-badge badge-available">LIVRE</span>
+                </div>
+                <p>Horário disponível para novos programas e projetos.</p>
+              </div>
+            </article>
+
+            <article class="program-item program-available">
+              <div class="program-time">18:00 às 18:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Espaço disponível</strong>
+                  <span class="program-badge badge-available">LIVRE</span>
+                </div>
+                <p>Horário disponível para novos programas e projetos.</p>
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">19:00 às 19:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Daniel - O Senhor é meu pastor, nada me faltará</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">20:00 às 20:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Marcos Rosa - Cristo é vida</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-official">
+              <div class="program-time">21:00 às 22:00</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>VOZ DO BRASIL</strong>
+                  <span class="program-badge badge-official">INSTITUCIONAL</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">22:00 às 22:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Ev. Diomar - Enraizados em Cristo</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-general">
+              <div class="program-time">23:00 às 23:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Tião - Por trás das Grades</strong>
+                  <span class="program-badge badge-general">PROGRAMA</span>
+                </div>
+                
+              </div>
+            </article>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="sabado">
+            <div class="daily-news-strip">
+              <div class="daily-news-icon">HN</div>
+              <div>
+                <strong>Giro HN</strong>
+                <span>6 boletins com as principais notícias do dia, distribuídos ao longo da programação.</span>
+              </div>
+            </div>
+            <div class="program-grid">
+
+            <article class="program-item program-music">
+              <div class="program-time">00:00 às 06:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Madrugada</strong>
+                  <span class="program-badge badge-music">PROGRAMAÇÃO MUSICAL</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">07:00 às 07:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Deleon - Semeando a Palavra</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-general">
+              <div class="program-time">08:00 às 08:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Marcio - Libertos pela Palavra</strong>
+                  <span class="program-badge badge-general">PROGRAMA</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">09:00 às 09:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Antenor - Pr. Junior - Vida Jovem</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">10:00 às 10:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Iliomar - Ecos do Calvário</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">11:00 às 11:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Amilton - Seguidores de Jesus</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">12:00 às 12:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Amilton - Igreja Cristã Tabernáculo da Nova Aliança</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">13:00 às 14:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Carlinhos - Momento da Fé</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">15:00 às 15:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Francisco - Vivendo em Cristo e resgatando</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">16:00 às 16:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pb. Dilnei do Nascimento - Murilo - Mensagem de paz</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">17:00 às 17:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Darcilo Andrade - Clamor dos Perdidos</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">18:00 às 18:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>O poder sobrenatural da fé - Pr. Gessivaldo Miranda</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">19:00 às 19:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Karina Silveira - Palavra Viva</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">20:00 às 20:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Pr. Joanilson - Carla - Missionários pelo mundo</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-faith">
+              <div class="program-time">21:00 às 21:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Deus, Amor e Justiça - Pr. Eli Leopoldo</strong>
+                  <span class="program-badge badge-faith">FÉ &amp; ESPIRITUALIDADE</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-general">
+              <div class="program-time">22:00 às 22:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Tião - Por Trás das grades</strong>
+                  <span class="program-badge badge-general">PROGRAMA</span>
+                </div>
+                
+              </div>
+            </article>
+
+            <article class="program-item program-general">
+              <div class="program-time">23:00 às 23:55</div>
+              <div class="program-content">
+                <div class="program-heading">
+                  <strong>Tião - Por trás das grades</strong>
+                  <span class="program-badge badge-general">PROGRAMA</span>
+                </div>
+                
+              </div>
+            </article>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="conecte-se">
+<section id="conecte-se">
       <div class="container">
         <h2 class="section-title">Assista e acompanhe</h2>
         <p class="section-subtitle">Acompanhe a Rádio Vertical nas plataformas digitais, assista à programação em nosso canal oficial no YouTube e fale diretamente com a equipe da emissora.</p>
@@ -524,6 +1956,7 @@
     document.getElementById('whatsappLink')?.addEventListener('click',()=>trackEvent('click_whatsapp'));
     document.getElementById('hnTextLink')?.addEventListener('click',()=>trackEvent('click_hn_noticias'));
     document.getElementById('hnButtonLink')?.addEventListener('click',()=>trackEvent('click_hn_noticias'));
+    document.querySelectorAll('.hn-news-link').forEach(link=>link.addEventListener('click',()=>trackEvent('click_hn_noticias')));
 
     syncAudioButtons();showBanner(0);setInterval(nextBanner,5000);
 
