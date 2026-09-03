@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rádio Vertical FM 97,7</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V6THXYPXMH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V6THXYPXMH');
+  </script>
+
+  <style>
+    :root {
+      --bg:#eef5fb; --card:#fff; --text:#0f2340; --muted:#5d7592;
+      --primary:#0a8ff0; --primary-2:#0568bb; --dark:#0b213d;
+      --border:#d7e5f3; --shadow:0 18px 42px rgba(15,35,64,.10);
+      --radius-xl:28px; --max:1180px; --youtube:#ff0000; --youtube-dark:#cc0000;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#f8fbff 0%,#eef5fb 100%);color:var(--text)}
+    a{color:inherit;text-decoration:none} img{display:block;max-width:100%}
+    .container{width:min(var(--max),calc(100% - 28px));margin:0 auto}
+
+    .topbar{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-bottom:1px solid #e4edf7;box-shadow:0 8px 22px rgba(0,0,0,.05)}
+    .topbar-inner{min-height:84px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0}
+    .brand{display:flex;align-items:center;gap:14px;min-width:0;background:#f5f9ff;padding:8px 14px;border-radius:16px;border:1px solid #e2edf8}
+    .brand img{height:62px;width:auto;object-fit:contain;flex-shrink:0}
+    .brand strong{color:#0d2747;font-size:1.12rem;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+    .btn-primary,.tab-btn,.yt-btn{border:0;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,opacity .18s ease}
+    .btn-primary:hover,.tab-btn:hover,.yt-btn:hover{transform:translateY(-2px)}
+    .btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 20px;border-radius:999px;background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;font-weight:700;box-shadow:0 14px 28px rgba(5,104,187,.24)}
+    .yt-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border-radius:999px;background:linear-gradient(135deg,var(--youtube),var(--youtube-dark));color:#fff;font-weight:700;box-shadow:0 14px 28px rgba(255,0,0,.22)}
+    .btn-primary svg,.yt-btn svg,.social-link svg{width:20px;height:20px;flex-shrink:0}
+
+    .banner-wrap{padding:18px 0 6px}
+    .banner-carousel{width:min(790px,100%);margin:0 auto}
+    .banner-stage{position:relative;overflow:hidden;border-radius:22px;border:1px solid var(--border);box-shadow:var(--shadow);background:#fff}
+    .banner-slide{display:none;width:100%} .banner-slide.active{display:block;animation:fadeIn .45s ease}
+    .banner-slide a{display:block;width:100%} .banner-slide img{width:100%;aspect-ratio:79/30;object-fit:cover}
+    .banner-dots{display:flex;justify-content:center;gap:8px;margin-top:10px}
+    .banner-dot{width:8px;height:8px;border-radius:50%;background:rgba(13,39,71,.18);transition:all .2s ease}
+    .banner-dot.active{background:rgba(13,39,71,.55);transform:scale(1.15)}
+    @keyframes fadeIn{from{opacity:.4}to{opacity:1}}
+
+    .hero{padding:28px 0 14px}
+    .hero-card{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:center;padding:34px;border-radius:34px;background:linear-gradient(135deg,#fff,#f3f8fd);border:1px solid var(--border);box-shadow:var(--shadow)}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:#eef7ff;color:#436689;border:1px solid #dce9f6;font-size:.92rem;margin-bottom:16px}
+    .dot{width:10px;height:10px;border-radius:50%;background:#19cf64;box-shadow:0 0 0 6px rgba(25,207,100,.12)}
+    .hero-brand{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:10px}
+    .hero-brand img{width:130px;object-fit:contain}
+    .hero h1{margin:0;font-size:clamp(2.2rem,4.7vw,4rem);line-height:1.02;color:#0c2747}
+    .hero .tagline{margin:12px 0 0;color:#31587f;font-size:1.18rem;line-height:1.6}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}
+    .hero-helper{margin-top:12px;color:var(--muted);font-size:.95rem;line-height:1.6}
+    .hero-image-card{padding:16px;border-radius:26px;background:linear-gradient(180deg,#fafdff,#ecf5ff);border:1px solid var(--border)}
+    .hero-image-card img{width:100%;min-height:300px;max-height:400px;object-fit:cover;border-radius:18px}
+
+    section{padding:18px 0}
+    .section-title{margin:0 0 12px;font-size:clamp(1.7rem,3vw,2.3rem);color:#0d2747}
+    .section-subtitle{margin:0 0 22px;color:var(--muted);line-height:1.75;max-width:76ch}
+    .about-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:22px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-xl);box-shadow:var(--shadow)}
+    .about-text{padding:28px;color:#24415f;line-height:1.95;font-size:1rem}
+    .about-photo{overflow:hidden;background:linear-gradient(180deg,#fff,#eef6ff)} .about-photo img{width:100%;height:100%;min-height:340px;object-fit:cover}
+
+    .schedule-card{padding:22px}
+    .tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+    .day-radio{position:absolute;opacity:0;pointer-events:none}
+    .tab-btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 15px;border-radius:999px;background:#eef6ff;color:#28517c;border:1px solid #d8e6f4;font-weight:700;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
+    .tab-btn:hover{transform:translateY(-2px)}
+    .tab-panel{display:none}
+    #day-domingo:checked ~ .tabs label[for="day-domingo"],
+    #day-segunda:checked ~ .tabs label[for="day-segunda"],
+    #day-terca:checked ~ .tabs label[for="day-terca"],
+    #day-quarta:checked ~ .tabs label[for="day-quarta"],
+    #day-quinta:checked ~ .tabs label[for="day-quinta"],
+    #day-sexta:checked ~ .tabs label[for="day-sexta"],
+    #day-sabado:checked ~ .tabs label[for="day-sabado"]{
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      color:#fff;
+      box-shadow:0 12px 24px rgba(5,104,187,.18)
+    }
+    #day-domingo:checked ~ #domingo,
+    #day-segunda:checked ~ #segunda,
+    #day-terca:checked ~ #terca,
+    #day-quarta:checked ~ #quarta,
+    #day-quinta:checked ~ #quinta,
+    #day-sexta:checked ~ #sexta,
+    #day-sabado:checked ~ #sabado{display:block}
+    .table-wrap{overflow-x:auto;border-radius:20px;border:1px solid var(--border);background:#fbfdff}
+    table{width:100%;border-collapse:collapse;min-width:720px}
+    thead th{text-align:left;padding:16px 18px;background:#eaf4ff;color:#1e456c;font-size:.96rem}
+    tbody td{padding:14px 18px;border-top:1px solid var(--border);color:#234160;vertical-align:top}
+    tbody tr:nth-child(even){background:#f8fbff}
+    .free-tag{display:inline-block;padding:6px 10px;border-radius:999px;background:#eef7ff;border:1px solid #d7e5f2;color:#2f5c8b;font-size:.85rem;font-weight:700}
+
+    .youtube-card,.social-card{padding:24px}
+    .youtube-box{border-radius:22px;border:1px solid var(--border);background:linear-gradient(135deg,#fff5f5,#fff);padding:24px}
+    .youtube-note{margin:0;color:var(--muted);line-height:1.7;font-size:.98rem;max-width:60ch}
+    .youtube-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .social-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:4px}
+    .social-link{display:inline-flex;align-items:center;gap:8px;color:#234a73;font-weight:700}
+    .social-link:hover{opacity:.8}
+    .address-card{margin-top:18px;padding:16px 18px;border-radius:16px;background:#f7fbff;border:1px solid var(--border);color:#234160;line-height:1.7}
+
+    .hn-related{padding:24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;background:linear-gradient(135deg,#f2f8ff,#fff)}
+    .hn-related p{margin:5px 0 0;color:var(--muted);line-height:1.7;max-width:70ch}
+    .hn-related a{font-weight:800;color:var(--primary-2)}
+    .hn-link-button{display:inline-flex;padding:11px 16px;border-radius:999px;border:1px solid #bfd8ef;background:#fff;color:var(--primary-2)!important;font-weight:700!important}
+
+    .footer{padding:20px 0 34px}
+    .footer-card{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:20px 24px;background:#0b213d;color:#d3e3f5;border-radius:24px;box-shadow:0 18px 40px rgba(11,33,61,.18)}
+    .footer-brand{display:flex;align-items:center;gap:12px} .footer-brand img{width:50px;height:50px;object-fit:contain}
+    .footer-brand strong{display:block;color:#fff;margin-bottom:4px}
+
+    @media(max-width:980px){.hero-card,.about-grid{grid-template-columns:1fr}.hero-card{padding:24px}.about-photo img{min-height:240px}}
+    @media(max-width:640px){
+      .container{width:min(var(--max),calc(100% - 18px))}
+      .topbar-inner{min-height:72px;gap:10px}
+      .brand{padding:6px 10px} .brand img{height:54px} .brand strong{font-size:.98rem}
+      .btn-primary,.yt-btn{padding:10px 14px;font-size:.92rem}
+      .hero{padding-top:22px} .hero-brand img{width:96px} .hero-card{padding:18px;border-radius:24px}
+      .about-text,.youtube-card,.social-card,.schedule-card{padding:18px}
+      .tab-btn{padding:10px 13px;font-size:.9rem} .social-row{gap:14px} .footer-card{padding:18px}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <img src="logo.png" alt="Logo Rádio Vertical FM 97,7" />
+        <strong>Rádio Vertical FM 97,7</strong>
+      </div>
+      <button class="btn-primary" id="listenBtn" type="button" aria-label="Ouvir rádio ao vivo">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M8 6.5v11l9-5.5-9-5.5Z" fill="currentColor"/></svg>
+        <span id="listenBtnText">Ouça ao vivo</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="banner-wrap">
+      <div class="container">
+        <div class="banner-carousel">
+          <div class="banner-stage">
+            <div class="banner-slide active">
+              <a id="bannerLinkHn" href="https://hnnoticias.com.br/" target="_blank" rel="noopener">
+                <img src="imagens/Banner-HN.png" alt="HN Notícias" />
+              </a>
+            </div>
+            <div class="banner-slide">
+              <a id="bannerLinkAnuncie" href="https://wa.me/554834115814" target="_blank" rel="noopener">
+                <img src="imagens/banner-anuncieaqui.png" alt="Anuncie aqui na Rádio Vertical" />
+              </a>
+            </div>
+          </div>
+          <div class="banner-dots"><span class="banner-dot active"></span><span class="banner-dot"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div>
+            <div class="eyebrow"><span class="dot"></span> Rádio, informação e conexão com a comunidade</div>
+            <div class="hero-brand">
+              <img src="logo.png" alt="Rádio Vertical FM 97,7" />
+              <div>
+                <h1>Rádio Vertical FM 97,7</h1>
+                <p class="tagline">A caminho da perfeição</p>
+              </div>
+            </div>
+            <div class="hero-actions">
+              <button class="btn-primary" id="heroListenBtn" type="button">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M8 6.5v11l9-5.5-9-5.5Z" fill="currentColor"/></svg>
+                <span id="heroListenText">Ouça ao vivo</span>
+              </button>
+            </div>
+            <p class="hero-helper">Clique para ouvir a programação ao vivo da Rádio Vertical FM 97,7.</p>
+          </div>
+          <div class="hero-image-card"><img src="imagens/foto-radio.png" alt="Estúdio da Rádio Vertical FM 97,7" /></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="quem-somos">
+      <div class="container">
+        <h2 class="section-title">Quem somos</h2>
+        <p class="section-subtitle">Uma emissora consolidada, com identidade própria, forte conexão com o público e compromisso permanente com a qualidade do conteúdo.</p>
+        <div class="about-grid">
+          <div class="card about-text">
+            A Rádio Vertical FM 97,7 é uma emissora consolidada, com identidade própria e forte conexão com seu público. Com sede em Turvo (SC) e estúdio de produção em Criciúma, a rádio atua de forma estratégica na região, unindo proximidade local e qualidade de conteúdo.<br><br>
+            Com uma programação diversificada e foco em excelência, a emissora se destaca pela entrega de conteúdos relevantes, música gospel de qualidade e uma comunicação alinhada aos valores do seu público.<br><br>
+            A Vertical FM tem como compromisso manter um padrão elevado em todos os seus conteúdos, valorizando a experiência do ouvinte e fortalecendo a credibilidade da marca junto à audiência.
+          </div>
+          <div class="card about-photo"><img src="imagens/foto-radio.png" alt="Foto do estúdio da Rádio Vertical" /></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="programacao">
+      <div class="container">
+        <h2 class="section-title">Programação semanal</h2>
+        <p class="section-subtitle">Confira a grade atualizada da Rádio Vertical FM 97,7. Os espaços identificados como <strong>LIVRE</strong> permanecem destacados como horários disponíveis.</p>
+        <div class="card schedule-card">
+          <input class="day-radio" type="radio" name="programacao-dia" id="day-domingo" checked>
+          <input class="day-radio" type="radio" name="programacao-dia" id="day-segunda">
+          <input class="day-radio" type="radio" name="programacao-dia" id="day-terca">
+          <input class="day-radio" type="radio" name="programacao-dia" id="day-quarta">
+          <input class="day-radio" type="radio" name="programacao-dia" id="day-quinta">
+          <input class="day-radio" type="radio" name="programacao-dia" id="day-sexta">
+          <input class="day-radio" type="radio" name="programacao-dia" id="day-sabado">
+
+          <div class="tabs" role="tablist" aria-label="Dias da semana">
+            <label class="tab-btn" for="day-domingo" data-day="domingo">Domingo</label>
+            <label class="tab-btn" for="day-segunda" data-day="segunda">Segunda</label>
+            <label class="tab-btn" for="day-terca" data-day="terca">Terça</label>
+            <label class="tab-btn" for="day-quarta" data-day="quarta">Quarta</label>
+            <label class="tab-btn" for="day-quinta" data-day="quinta">Quinta</label>
+            <label class="tab-btn" for="day-sexta" data-day="sexta">Sexta</label>
+            <label class="tab-btn" for="day-sabado" data-day="sabado">Sábado</label>
+          </div>
+          <div class="tab-panel" id="domingo">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Horário</th><th>Programa</th><th>Observação</th></tr></thead>
+          <tbody>
+            <tr><td>00:00 às 08:55</td><td>Madrugada</td><td></td></tr>
+<tr><td>09:00 às 09:55</td><td>Cristiano - Semeando vidas</td><td></td></tr>
+<tr><td>10:00 às 10:55</td><td>Pr. Valmir - Paz real</td><td></td></tr>
+<tr><td>11:00 às 11:55</td><td>Pr. Donizete Braz - Igreja Pentecostal Casa dos Milagres</td><td></td></tr>
+<tr><td>12:00 às 12:55</td><td>Pr. Vacilézio - Jesus a única esperança</td><td></td></tr>
+<tr><td>13:00 às 14:55</td><td>Telson - Agradecendo Deus</td><td></td></tr>
+<tr><td>15:00 às 16:55</td><td>Jhonathan - Missão solidária</td><td></td></tr>
+<tr><td>17:00 às 17:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
+<tr><td>18:00 às 18:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
+<tr><td>19:00 às 19:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
+<tr><td>20:00 às 20:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
+<tr><td>21:00 às 21:55</td><td>Pr. Tiago Guimarães - Óticas Mondo: PERMUTA</td><td></td></tr>
+<tr><td>22:00 às 22:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
+<tr><td>23:00 às 23:55</td><td>Tião - Por trás das grades</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+<div class="tab-panel" id="segunda">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Horário</th><th>Programa</th><th>Observação</th></tr></thead>
+          <tbody>
+            <tr><td>00:00 às 05:25</td><td>Madrugada</td><td></td></tr>
+<tr><td>05:30 às 06:55</td><td>Pr. Iliomar Moura</td><td></td></tr>
+<tr><td>07:00 às 07:55</td><td>Pr. Vânio Oliveira - Comunidade Alerta</td><td></td></tr>
+<tr><td>08:00 às 08:55</td><td>Pr. Tiago, Óticas Mondo - Bom te ver bem</td><td></td></tr>
+<tr><td>09:00 às 09:55</td><td>Pr. Antenor - Pr. Junior - Vida Jovem</td><td></td></tr>
+<tr><td>10:00 às 10:55</td><td>Cleimar dos Santos - Manhã News</td><td></td></tr>
+<tr><td>11:00 às 11:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
+<tr><td>12:00 às 12:55</td><td>Josiel Pedro / Paulo Santos - A voz da libertação - Deus é Amor</td><td></td></tr>
+<tr><td>13:00 às 13:55</td><td>Magali - Terapêuta à Serviço de Deus</td><td></td></tr>
+<tr><td>14:00 às 14:55</td><td>Pr. Ademir Felisberto - A Hora da Benção</td><td></td></tr>
+<tr><td>15:00 às 15:55</td><td>Israel Mijaeski - A Tarde é Nossa</td><td></td></tr>
+<tr><td>16:00 às 16:55</td><td>Luana - Vida e Paz</td><td></td></tr>
+<tr><td>17:00 às 17:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
+<tr><td>18:00 às 18:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
+<tr><td>19:00 às 19:55</td><td>Pb. Davi - Eu sou o Caminho</td><td></td></tr>
+<tr><td>20:00 às 20:55</td><td>Vagner Luis - Eu e minha casa serviremos ao Senhor</td><td></td></tr>
+<tr><td>21:00 às 22:00</td><td>VOZ DO BRASIL</td><td></td></tr>
+<tr><td>22:00 às 22:55</td><td>Edmilson - Jesus é o caminho a verdade e a vida</td><td></td></tr>
+<tr><td>23:00 às 23:55</td><td>Tião - Por trás das Grades</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+<div class="tab-panel" id="terca">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Horário</th><th>Programa</th><th>Observação</th></tr></thead>
+          <tbody>
+            <tr><td>00:00 às 05:25</td><td>Madrugada</td><td></td></tr>
+<tr><td>05:30 às 06:55</td><td>Pr. Iliomar Moura</td><td></td></tr>
+<tr><td>07:00 às 07:55</td><td>Pr. Vânio Oliveira - Comunidade Alerta</td><td></td></tr>
+<tr><td>08:00 às 08:55</td><td>André Eleotério</td><td></td></tr>
+<tr><td>09:00 às 09:55</td><td>Marlene Oásis</td><td></td></tr>
+<tr><td>10:00 às 10:55</td><td>Cleimar dos Santos - Manhã News</td><td></td></tr>
+<tr><td>11:00 às 11:55</td><td>Betão Quadrangular - Graça e Fogo</td><td></td></tr>
+<tr><td>12:00 às 12:55</td><td>Josiel Pedro / Paulo Santos - A voz da libertação - Deus é Amor</td><td></td></tr>
+<tr><td>13:00 às 13:55</td><td>Dirceu - Novo Caminho</td><td></td></tr>
+<tr><td>14:00 às 14:55</td><td>Josenir - Mãos Dadas</td><td></td></tr>
+<tr><td>15:00 às 15:55</td><td>Israel Mijaeski - A Tarde é Nossa</td><td></td></tr>
+<tr><td>16:00 às 16:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
+<tr><td>17:00 às 17:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
+<tr><td>18:00 às 18:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
+<tr><td>19:00 às 19:55</td><td>Jobson - Há poder no Sangue de Jesus</td><td></td></tr>
+<tr><td>20:00 às 20:55</td><td>Jobson - Há poder no Sangue de Jesus</td><td></td></tr>
+<tr><td>21:00 às 22:00</td><td>VOZ DO BRASIL</td><td></td></tr>
+<tr><td>22:00 às 22:55</td><td>João - Noite com Deus</td><td></td></tr>
+<tr><td>23:00 às 23:55</td><td>Tião - Por trás das Grades</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+<div class="tab-panel" id="quarta">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Horário</th><th>Programa</th><th>Observação</th></tr></thead>
+          <tbody>
+            <tr><td>00:00 às 05:25</td><td>Madrugada</td><td></td></tr>
+<tr><td>05:30 às 06:55</td><td>Pr. Iliomar Moura</td><td></td></tr>
+<tr><td>07:00 às 07:55</td><td>Pr. Vânio Oliveira - Comunidade Alerta</td><td></td></tr>
+<tr><td>08:00 às 09:55</td><td>Pr. Jeferson Boianowski - Despertai</td><td></td></tr>
+<tr><td>10:00 às 10:55</td><td>Cleimar dos Santos - Manhã News</td><td></td></tr>
+<tr><td>11:00 às 11:55</td><td>Roteiros do Sul - Marcelo</td><td></td></tr>
+<tr><td>12:00 às 12:55</td><td>Josiel Pedro / Paulo Santos - A voz da libertação - Deus é Amor</td><td></td></tr>
+<tr><td>13:00 às 13:55</td><td>Pr. Maurino / Cláudia - Uma voz no Deserto</td><td></td></tr>
+<tr><td>14:00 às 14:55</td><td>Pr. Gerônimo - Palavra Profética</td><td></td></tr>
+<tr><td>15:00 às 15:55</td><td>Israel Mijaeski - A Tarde é Nossa</td><td></td></tr>
+<tr><td>16:00 às 16:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
+<tr><td>17:00 às 17:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
+<tr><td>18:00 às 18:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
+<tr><td>19:00 às 19:55</td><td>Pr. Leonel - Alimente-se da Verdade</td><td></td></tr>
+<tr><td>20:00 às 20:55</td><td>Pr. Valmir de Souza - Vitória em Cristo</td><td></td></tr>
+<tr><td>21:00 às 22:00</td><td>VOZ DO BRASIL</td><td></td></tr>
+<tr><td>22:00 às 22:55</td><td>Pr. Valdenir Ronchi</td><td></td></tr>
+<tr><td>23:00 às 23:55</td><td>Tião - Por trás das Grades</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+<div class="tab-panel" id="quinta">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Horário</th><th>Programa</th><th>Observação</th></tr></thead>
+          <tbody>
+            <tr><td>00:00 às 05:25</td><td>Madrugada</td><td></td></tr>
+<tr><td>05:30 às 06:55</td><td>Pr. Iliomar Moura</td><td></td></tr>
+<tr><td>07:00 às 07:55</td><td>Pr. Vânio Oliveira - Comunidade Alerta</td><td></td></tr>
+<tr><td>08:00 às 08:55</td><td>Wellington Mafiolete - Meu grande herói</td><td></td></tr>
+<tr><td>09:00 às 09:55</td><td>Wellington Mafiolete - Meu grande herói</td><td></td></tr>
+<tr><td>10:00 às 10:55</td><td>Cleimar dos Santos - Manhã News</td><td></td></tr>
+<tr><td>11:00 às 11:55</td><td>Tânia - Amor e Vida</td><td></td></tr>
+<tr><td>12:00 às 12:55</td><td>Josiel Pedro / Paulo Santos - A voz da libertação - Deus é Amor</td><td></td></tr>
+<tr><td>13:00 às 13:55</td><td>Jucélia - Idade de Ouro</td><td></td></tr>
+<tr><td>14:00 às 14:55</td><td>Pb. João dos Passos - Missão da Última Hora</td><td></td></tr>
+<tr><td>15:00 às 15:55</td><td>Israel Mijaeski - A Tarde é Nossa</td><td></td></tr>
+<tr><td>16:00 às 16:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
+<tr><td>17:00 às 17:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
+<tr><td>18:00 às 18:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
+<tr><td>19:00 às 19:55</td><td>Pr. Rodrigo Léo - Em obras - Jesus na ruas</td><td></td></tr>
+<tr><td>20:00 às 20:55</td><td>Irmã Rosane Carvalho - Uma Vida com propósito</td><td></td></tr>
+<tr><td>21:00 às 22:00</td><td>VOZ DO BRASIL</td><td></td></tr>
+<tr><td>22:00 às 22:55</td><td>Pr. Gerson Luiz - Luz do Mundo</td><td></td></tr>
+<tr><td>23:00 às 23:55</td><td>Tião - Por trás das Grades</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+<div class="tab-panel" id="sexta">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Horário</th><th>Programa</th><th>Observação</th></tr></thead>
+          <tbody>
+            <tr><td>00:00 às 05:25</td><td>Madrugada</td><td></td></tr>
+<tr><td>05:30 às 06:55</td><td>Pr. Iliomar Moura</td><td></td></tr>
+<tr><td>07:00 às 07:55</td><td>Pr. Vânio Oliveira - Comunidade Alerta</td><td></td></tr>
+<tr><td>08:00 às 08:55</td><td>Pr. Sabino Nicolleti - AD Turvo</td><td></td></tr>
+<tr><td>09:00 às 09:55</td><td>Célio Timboni - Uma voz que ecoa no deserto</td><td></td></tr>
+<tr><td>10:00 às 10:55</td><td>Cleimar dos Santos - Manhã News</td><td></td></tr>
+<tr><td>11:00 às 11:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
+<tr><td>12:00 às 12:55</td><td>Josiel Pedro / Paulo Santos - A voz da libertação - Deus é Amor</td><td></td></tr>
+<tr><td>13:00 às 14:55</td><td>Pr. Cleiton Santos</td><td></td></tr>
+<tr><td>15:00 às 15:55</td><td>Israel Mijaeski - A Tarde é Nossa</td><td></td></tr>
+<tr><td>16:00 às 16:55</td><td>Pr. Wagner - Desafio Calebe</td><td></td></tr>
+<tr><td>17:00 às 17:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
+<tr><td>18:00 às 18:55</td><td><span class="free-tag">LIVRE</span></td><td>Espaço disponível</td></tr>
+<tr><td>19:00 às 19:55</td><td>Pr. Daniel - O Senhor é meu pasrtor, nada me faltará</td><td></td></tr>
+<tr><td>20:00 às 20:55</td><td>Pr. Marcos Rosa - Cristo é vida</td><td></td></tr>
+<tr><td>21:00 às 22:00</td><td>VOZ DO BRASIL</td><td></td></tr>
+<tr><td>22:00 às 22:55</td><td>Ev. Diomar - Enraizados em Cristo</td><td></td></tr>
+<tr><td>23:00 às 23:55</td><td>Tião - Por trás das Grades</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+<div class="tab-panel" id="sabado">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Horário</th><th>Programa</th><th>Observação</th></tr></thead>
+          <tbody>
+            <tr><td>00:00 às 06:55</td><td>Madrugada</td><td></td></tr>
+<tr><td>07:00 às 07:55</td><td>Deleon - Semeando a Palavra</td><td></td></tr>
+<tr><td>08:00 às 08:55</td><td>Marcio - Libertos pela Palavra</td><td></td></tr>
+<tr><td>09:00 às 09:55</td><td>Pr. Antenor - Pr. Junior - Vida Jovem</td><td></td></tr>
+<tr><td>10:00 às 10:55</td><td>Pr. Iliomar - Ecos do Calvário</td><td></td></tr>
+<tr><td>11:00 às 11:55</td><td>Pr. Amilton - Seguidores de Jesus</td><td></td></tr>
+<tr><td>12:00 às 12:55</td><td>Amilton - Igreja Cristã Tabernáculo da Nova Aliança</td><td></td></tr>
+<tr><td>13:00 às 14:55</td><td>Pr. Carlinhos - Momento da Fé</td><td></td></tr>
+<tr><td>15:00 às 15:55</td><td>Pr. Francisco - Vivendo em Cristo e resgatando</td><td></td></tr>
+<tr><td>16:00 às 16:55</td><td>Pb. Dilnei do Nascimento - Murilo - Mensagem de paz</td><td></td></tr>
+<tr><td>17:00 às 17:55</td><td>Darcilo Andrade - Clamor dos Perdidos</td><td></td></tr>
+<tr><td>18:00 às 18:55</td><td>O poder sobrenatural da fé - Pr. Gessivaldo Miranda</td><td></td></tr>
+<tr><td>19:00 às 19:55</td><td>Karina Silveira - Palavra Viva</td><td></td></tr>
+<tr><td>20:00 às 20:55</td><td>Pr. Joanilson - Carla - Missionários pelo mundo</td><td></td></tr>
+<tr><td>21:00 às 21:55</td><td>Deus, Amor e Justiça - Pr. Eli Leopoldo</td><td></td></tr>
+<tr><td>22:00 às 22:55</td><td>Tião - Por Trás das grades</td><td></td></tr>
+<tr><td>23:00 às 23:55</td><td>Tião - Por trás das grades</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="conecte-se">
+      <div class="container">
+        <h2 class="section-title">Assista e acompanhe</h2>
+        <p class="section-subtitle">Acompanhe a Rádio Vertical nas plataformas digitais, assista à programação em nosso canal oficial no YouTube e fale diretamente com a equipe da emissora.</p>
+
+        <div class="card youtube-card">
+          <div class="youtube-box">
+            <h3 style="margin-top:0;margin-bottom:12px;color:#0d2747">Canal oficial no YouTube</h3>
+            <p class="youtube-note">Acesse o canal oficial da Rádio Vertical FM 97,7 para acompanhar nossas transmissões e conteúdos em vídeo.</p>
+            <div class="youtube-actions">
+              <a class="yt-btn" id="youtubeMainButton" href="https://www.youtube.com/@Vertical977fm" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M21.2 8.2c-.2-1-.9-1.7-1.8-1.9C17.8 6 12 6 12 6s-5.8 0-7.4.3c-.9.2-1.6.9-1.8 1.9C2.5 9.8 2.5 12 2.5 12s0 2.2.3 3.8c.2 1 .9 1.7 1.8 1.9 1.6.3 7.4.3 7.4.3s5.8 0 7.4-.3c.9-.2 1.6-.9 1.8-1.9.3-1.6.3-3.8.3-3.8s0-2.2-.3-3.8Z" fill="currentColor"/><path d="m10.2 15.4 5-3.4-5-3.4v6.8Z" fill="#fff"/></svg>
+                Assistir ao vivo no YouTube
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card social-card" style="margin-top:22px">
+          <h3 style="margin-top:0;margin-bottom:14px;color:#0d2747">Redes sociais e contato</h3>
+          <div class="social-row">
+            <a class="social-link" id="instagramLink" href="https://www.instagram.com/radioverticalfm/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor"/></svg>Instagram
+            </a>
+            <a class="social-link" id="facebookLink" href="https://www.facebook.com/verticalfm977" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M13.3 21v-7.3h2.4l.5-3h-2.9V9.1c0-.9.3-1.5 1.6-1.5h1.5V5c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2h-2.5v3h2.5V21h2.3Z" fill="currentColor"/></svg>Facebook
+            </a>
+            <a class="social-link" id="youtubeSocialLink" href="https://www.youtube.com/@Vertical977fm" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M21.2 8.2c-.2-1-.9-1.7-1.8-1.9C17.8 6 12 6 12 6s-5.8 0-7.4.3c-.9.2-1.6.9-1.8 1.9C2.5 9.8 2.5 12 2.5 12s0 2.2.3 3.8c.2 1 .9 1.7 1.8 1.9 1.6.3 7.4.3 7.4.3s5.8 0 7.4-.3c.9-.2 1.6-.9 1.8-1.9.3-1.6.3-3.8.3-3.8s0-2.2-.3-3.8Z" stroke="currentColor" stroke-width="1.6"/><path d="m10.2 15.4 5-3.4-5-3.4v6.8Z" fill="currentColor"/></svg>YouTube
+            </a>
+            <a class="social-link" id="whatsappLink" href="https://wa.me/554834115814" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M20 11.6c0 4.5-3.7 8.2-8.2 8.2-1.4 0-2.8-.4-4-1l-4 1 1.1-3.9a8.1 8.1 0 0 1-1.2-4.2c0-4.5 3.7-8.2 8.2-8.2S20 7.1 20 11.6Z" stroke="currentColor" stroke-width="1.7"/></svg>WhatsApp
+            </a>
+          </div>
+          <div class="address-card"><strong style="display:block;margin-bottom:6px;color:#0d2747">Endereço</strong>Av. Santos Dumont - bairro São Luiz - Criciúma/SC</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="hn-noticias">
+      <div class="container">
+        <div class="card hn-related">
+          <div>
+            <strong style="font-size:1.15rem;color:#0d2747">Informação regional</strong>
+            <p>Acompanhe também as principais notícias de Criciúma, do Sul de Santa Catarina e da região no <a id="hnTextLink" href="https://hnnoticias.com.br/" target="_blank" rel="noopener">HN Notícias</a>.</p>
+          </div>
+          <a class="hn-link-button" id="hnButtonLink" href="https://hnnoticias.com.br/" target="_blank" rel="noopener">Acessar HN Notícias</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-card">
+        <div class="footer-brand">
+          <img src="logo.png" alt="Logo Rádio Vertical" />
+          <div><strong>Rádio Vertical FM 97,7</strong><span>A caminho da perfeição.</span></div>
+        </div>
+        <div>© 2026 Rádio Vertical FM 97,7. Todos os direitos reservados.</div>
+      </div>
+    </div>
+  </footer>
+
+  <audio id="radioPlayer" preload="none"></audio>
+
+  <script>
+    const STREAM_URL='https://s03.transmissaodigital.com:7582/stream';
+    const audio=document.getElementById('radioPlayer');
+    const topBtn=document.getElementById('listenBtn');
+    const heroBtn=document.getElementById('heroListenBtn');
+    const topText=document.getElementById('listenBtnText');
+    const heroText=document.getElementById('heroListenText');
+    const bannerSlides=document.querySelectorAll('.banner-slide');
+    const bannerDots=document.querySelectorAll('.banner-dot');
+    let isPlaying=false,currentBanner=0;
+
+    function trackEvent(name,params={}){if(typeof gtag==='function')gtag('event',name,params)}
+    function syncAudioButtons(){const text=isPlaying?'Pausar rádio':'Ouça ao vivo';topText.textContent=text;heroText.textContent=text}
+    async function toggleRadio(){
+      if(!audio.src)audio.src=STREAM_URL;
+      try{
+        if(isPlaying){audio.pause();isPlaying=false;trackEvent('radio_pause',{event_category:'engagement'})}
+        else{await audio.play();isPlaying=true;trackEvent('radio_play',{event_category:'engagement'})}
+      }catch(e){alert('Não foi possível iniciar o áudio. Verifique se o navegador liberou a reprodução.');console.error(e)}
+      syncAudioButtons();
+    }
+    function showBanner(index){bannerSlides.forEach((s,i)=>s.classList.toggle('active',i===index));bannerDots.forEach((d,i)=>d.classList.toggle('active',i===index));currentBanner=index}
+    function nextBanner(){showBanner((currentBanner+1)%bannerSlides.length)}
+
+    topBtn.addEventListener('click',toggleRadio);
+    heroBtn.addEventListener('click',toggleRadio);
+    audio.addEventListener('pause',()=>{isPlaying=false;syncAudioButtons()});
+    audio.addEventListener('play',()=>{isPlaying=true;syncAudioButtons()});
+
+    document.getElementById('bannerLinkHn')?.addEventListener('click',()=>trackEvent('click_banner_hn'));
+    document.getElementById('bannerLinkAnuncie')?.addEventListener('click',()=>trackEvent('click_banner_anuncie'));
+    document.getElementById('youtubeMainButton')?.addEventListener('click',()=>trackEvent('click_youtube_main'));
+    document.getElementById('instagramLink')?.addEventListener('click',()=>trackEvent('click_instagram'));
+    document.getElementById('facebookLink')?.addEventListener('click',()=>trackEvent('click_facebook'));
+    document.getElementById('youtubeSocialLink')?.addEventListener('click',()=>trackEvent('click_youtube_social'));
+    document.getElementById('whatsappLink')?.addEventListener('click',()=>trackEvent('click_whatsapp'));
+    document.getElementById('hnTextLink')?.addEventListener('click',()=>trackEvent('click_hn_noticias'));
+    document.getElementById('hnButtonLink')?.addEventListener('click',()=>trackEvent('click_hn_noticias'));
+
+    syncAudioButtons();showBanner(0);setInterval(nextBanner,5000);
+
+    document.querySelectorAll('.tab-btn[data-day]').forEach(tab=>{
+      tab.addEventListener('click',()=>{
+        trackEvent('click_programacao_tab',{
+          event_category:'engagement',
+          event_label:tab.dataset.day
+        });
+      });
+    });
+  </script>
+</body>
+</html>
